@@ -13,7 +13,7 @@ let gitHubProvider = MoyaProvider<GitHubProvider>(plugins: [NetworkLoggerPlugin(
 
 public enum GitHubProvider {
 
-    case user(_ user: String, page: Int?)
+    case user(_ user: String, page: Int)
 }
 
 extension GitHubProvider: TargetType {
@@ -26,9 +26,9 @@ extension GitHubProvider: TargetType {
     public var path: String {
 
         switch self {
-        case .user(let userName, _):
+        case .user:
 
-            return "/search/users?q=\(userName)"
+            return "/search/users"
         }
     }
 
@@ -49,10 +49,10 @@ extension GitHubProvider: TargetType {
     public var task: Task {
 
         switch self {
-        case .user(_, let page):
+        case .user(let name, let page):
 
-            guard let pageNumber = page else { return .requestPlain }
-            return .requestParameters(parameters: ["page": pageNumber,
+            return .requestParameters(parameters: ["q": name,
+                                                   "page": page,
                                                    "per_page": 100],
                                       encoding: URLEncoding(destination: .queryString))
         }
@@ -61,5 +61,13 @@ extension GitHubProvider: TargetType {
     public var headers: [String: String]? {
 
         return nil
+    }
+}
+
+private extension String {
+
+    var urlEscaped: String {
+
+        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
 }

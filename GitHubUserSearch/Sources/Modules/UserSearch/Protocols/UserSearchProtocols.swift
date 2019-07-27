@@ -31,6 +31,8 @@ protocol UserSearchPresenterToViewProtocol: class {
 protocol UserSearchPresenterToInteractorProtocol: class {
 
     func searchForUser(_ user: String)
+
+    func requestMoreResultsForUser(_ user: String)
 }
 
 // MARK: - UserSearchInteractorToPresenterProtocol
@@ -51,8 +53,8 @@ protocol UserSearchLocalDataManagerProtocol: class { }
 protocol UserSearchApiDataManagerProtocol: class {
 
     func searchForUser(_ user: String,
-                       page: Int?,
-                       completion: @escaping (Swift.Result<[GitHubUser], Error>) -> Void)
+                       page: Int,
+                       completion: @escaping (Swift.Result<UsersResponse, Error>) -> Void)
 }
 
 // MARK: - UserSearchPresenterToRouterProtocol

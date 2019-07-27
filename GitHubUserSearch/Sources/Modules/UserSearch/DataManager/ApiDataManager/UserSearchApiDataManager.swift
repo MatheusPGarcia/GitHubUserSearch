@@ -14,8 +14,8 @@ final class UserSearchApiDataManager { }
 extension UserSearchApiDataManager: UserSearchApiDataManagerProtocol {
 
     func searchForUser(_ user: String,
-                       page: Int?,
-                       completion: @escaping (Result<[GitHubUser], Error>) -> Void) {
+                       page: Int,
+                       completion: @escaping (Result<UsersResponse, Error>) -> Void) {
 
         let provider = gitHubProvider
         let target = GitHubProvider.user(user, page: page)
@@ -27,7 +27,7 @@ extension UserSearchApiDataManager: UserSearchApiDataManagerProtocol {
             switch result {
             case .success(let usersResponse):
 
-                completion(.success(usersResponse.users))
+                completion(.success(usersResponse))
             case .failure(let error):
 
                 completion(.failure(error))
