@@ -19,10 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         let storyboard = UIStoryboard(name: "UserSearch", bundle: nil)
-        let viewController = storyboard.instantiateInitialViewController() as? UserSearchViewController
+        let navController = storyboard.instantiateInitialViewController() as? UINavigationController
+        let viewController = navController?.viewControllers.first as? UserSearchViewController
         UserSearchRouter.createUserSearchModule(withViewController: viewController)
 
-        window?.rootViewController = viewController
+        window?.rootViewController = navController
         window?.makeKeyAndVisible()
 
         return true

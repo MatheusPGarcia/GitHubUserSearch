@@ -29,6 +29,17 @@ extension UserSearchPresenter: UserSearchViewToPresenterProtocol {
         view?.startLoading()
         interactor?.searchForUser(userName)
     }
+
+    func numberOfCells() -> Int {
+
+        let usersCount = interactor?.getUsersCount() ?? 0
+
+        if usersCount == 0 {
+
+            view?.setEmptyState()
+        }
+        return usersCount
+    }
 }
 
 // MARK: - UserSearchInteractorToPresenterProtocol

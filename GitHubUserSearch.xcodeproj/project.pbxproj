@@ -226,18 +226,18 @@
 				317C4D1B22EBC930009121B8 /* Presenter */,
 				317C4D1F22EBC9BF009121B8 /* Protocols */,
 				317C4D1D22EBC976009121B8 /* Router */,
-				317C4D1A22EBC926009121B8 /* ViewController */,
+				317C4D1A22EBC926009121B8 /* View */,
 			);
 			path = UserSearch;
 			sourceTree = "<group>";
 		};
-		317C4D1A22EBC926009121B8 /* ViewController */ = {
+		317C4D1A22EBC926009121B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				317C4D2222EBCBC9009121B8 /* UserSearchViewController.swift */,
 				317C4D2E22EBD629009121B8 /* UserSearch.storyboard */,
 			);
-			path = ViewController;
+			path = View;
 			sourceTree = "<group>";
 		};
 		317C4D1B22EBC930009121B8 /* Presenter */ = {

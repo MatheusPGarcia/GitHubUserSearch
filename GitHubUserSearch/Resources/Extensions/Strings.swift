@@ -11,6 +11,8 @@ import Foundation
 extension String {
 
     // MARK: - UserSearch strings
+    static let searchPlaceHolder = NSLocalizedString("Pesquise um usuário!",
+                                                     comment: "Text used as placeholder in the search bar")
 
     // MARK: error messages
     static let emptySearchMessage = NSLocalizedString("Ops, você precisa colocar algum nome para realizar a pesquisa",

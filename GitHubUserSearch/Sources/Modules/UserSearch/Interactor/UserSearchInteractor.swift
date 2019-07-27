@@ -23,6 +23,11 @@ final class UserSearchInteractor {
 // MARK: - UserSearchPresenterToInteractorProtocol
 extension UserSearchInteractor: UserSearchPresenterToInteractorProtocol {
 
+    func getUsersCount() -> Int {
+
+        return users.count
+    }
+
     func searchForUser(_ user: String) {
 
         currentPage = 1

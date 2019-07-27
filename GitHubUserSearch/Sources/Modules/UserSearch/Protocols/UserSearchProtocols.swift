@@ -13,11 +13,15 @@ import Foundation
 protocol UserSearchViewToPresenterProtocol: class {
 
     func searchForUser(_ user: String?)
+
+    func numberOfCells() -> Int
 }
 
 // MARK: - UserSearchPresenterToViewProtocol
 // PRESENTER -> VIEW
 protocol UserSearchPresenterToViewProtocol: class {
+
+    func setEmptyState()
 
     func startLoading()
 
@@ -30,6 +34,8 @@ protocol UserSearchPresenterToViewProtocol: class {
 // PRESENTER -> INTERACTOR
 protocol UserSearchPresenterToInteractorProtocol: class {
 
+    func getUsersCount() -> Int
+    
     func searchForUser(_ user: String)
 
     func requestMoreResultsForUser(_ user: String)
