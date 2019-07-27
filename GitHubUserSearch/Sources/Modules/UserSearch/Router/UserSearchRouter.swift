@@ -19,7 +19,7 @@ class UserSearchRouter {
         let localDataManager = UserSearchLocalDataManager()
 
         view?.presenter = presenter
-        presenter.viewController = view
+        presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
         interactor.presenter = presenter

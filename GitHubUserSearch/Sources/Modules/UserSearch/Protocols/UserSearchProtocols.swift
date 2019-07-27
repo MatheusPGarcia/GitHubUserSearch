@@ -10,19 +10,37 @@ import Foundation
 
 // MARK: - UserSearchViewToPresenterProtocol
 // VIEW -> PRESENTER
-protocol UserSearchViewToPresenterProtocol: class { }
+protocol UserSearchViewToPresenterProtocol: class {
+
+    func searchForUser(_ user: String?)
+}
 
 // MARK: - UserSearchPresenterToViewProtocol
 // PRESENTER -> VIEW
-protocol UserSearchPresenterToViewProtocol: class { }
+protocol UserSearchPresenterToViewProtocol: class {
+
+    func startLoading()
+
+    func stopLoading()
+
+    func presentErrorMessage(_ message: String)
+}
 
 // MARK: - UserSearchPresenterToInteractorProtocol
 // PRESENTER -> INTERACTOR
-protocol UserSearchPresenterToInteractorProtocol: class { }
+protocol UserSearchPresenterToInteractorProtocol: class {
+
+    func searchForUser(_ user: String)
+}
 
 // MARK: - UserSearchInteractorToPresenterProtocol
 // INTERACTOR -> PRESENTER
-protocol UserSearchInteractorToPresenterProtocol: class { }
+protocol UserSearchInteractorToPresenterProtocol: class {
+
+    func updateUsers()
+
+    func handleError(_ error: Error)
+}
 
 // MARK: - UserSearchLocalDataManagerProtocol
 // INTERACTOR -> LOCALDATAMANAGER
@@ -30,7 +48,12 @@ protocol UserSearchLocalDataManagerProtocol: class { }
 
 // MARK: - UserSearchApiDataManagerProtocol
 // INTERACTOR -> APIDATAMANAGER
-protocol UserSearchApiDataManagerProtocol: class { }
+protocol UserSearchApiDataManagerProtocol: class {
+
+    func searchForUser(_ user: String,
+                       page: Int?,
+                       completion: @escaping (Swift.Result<[GitHubUser], Error>) -> Void)
+}
 
 // MARK: - UserSearchPresenterToRouterProtocol
 // PRESENTER -> ROUTER
