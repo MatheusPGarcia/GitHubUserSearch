@@ -8,12 +8,30 @@
 
 import Foundation
 
-protocol UserSearchViewControllerToPresenterProtocol: class { }
+// MARK: - UserSearchViewToPresenterProtocol
+// VIEW -> PRESENTER
+protocol UserSearchViewToPresenterProtocol: class { }
 
-protocol UserSearchPresenterToViewControllerProtocol: class { }
+// MARK: - UserSearchPresenterToViewProtocol
+// PRESENTER -> VIEW
+protocol UserSearchPresenterToViewProtocol: class { }
 
+// MARK: - UserSearchPresenterToInteractorProtocol
+// PRESENTER -> INTERACTOR
 protocol UserSearchPresenterToInteractorProtocol: class { }
 
+// MARK: - UserSearchInteractorToPresenterProtocol
+// INTERACTOR -> PRESENTER
 protocol UserSearchInteractorToPresenterProtocol: class { }
 
+// MARK: - UserSearchLocalDataManagerProtocol
+// INTERACTOR -> LOCALDATAMANAGER
+protocol UserSearchLocalDataManagerProtocol: class { }
+
+// MARK: - UserSearchApiDataManagerProtocol
+// INTERACTOR -> APIDATAMANAGER
 protocol UserSearchApiDataManagerProtocol: class { }
+
+// MARK: - UserSearchPresenterToRouterProtocol
+// PRESENTER -> ROUTER
+protocol UserSearchPresenterToRouterProtocol: class { }
