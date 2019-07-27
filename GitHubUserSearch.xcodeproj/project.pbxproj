@@ -19,6 +19,7 @@
 		317C4D1322EBC125009121B8 /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C4D1222EBC125009121B8 /* GitHubUser.swift */; };
 		317C4D1522EBC3CC009121B8 /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C4D1422EBC3CC009121B8 /* UsersResponse.swift */; };
 		317C4D1722EBC4D6009121B8 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C4D1622EBC4D6009121B8 /* Repo.swift */; };
+		317C4D2122EBC9DE009121B8 /* UserSearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C4D2022EBC9DE009121B8 /* UserSearchProtocols.swift */; };
 		F2C1F1C0435E73EFDB8B2BF2 /* Pods_GitHubUserSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A96BE35223DC021CC5AAF63 /* Pods_GitHubUserSearchTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		317C4D1222EBC125009121B8 /* GitHubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
 		317C4D1422EBC3CC009121B8 /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
 		317C4D1622EBC4D6009121B8 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		317C4D2022EBC9DE009121B8 /* UserSearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchProtocols.swift; sourceTree = "<group>"; };
 		3AA04F338EC07D4724BE0081 /* Pods_GitHubUserSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubUserSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		450B2475D55804F755B6EBCF /* Pods-GitHubUserSearchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubUserSearchUITests.debug.xcconfig"; path = "Target Support Files/Pods-GitHubUserSearchUITests/Pods-GitHubUserSearchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A96BE35223DC021CC5AAF63 /* Pods_GitHubUserSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubUserSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +160,7 @@
 		317C4D0A22EB9B00009121B8 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				317C4D1822EBC87F009121B8 /* Modules */,
 				317C4D0C22EBB8CB009121B8 /* Network */,
 			);
 			path = Sources;
@@ -181,6 +184,70 @@
 				317C4D1622EBC4D6009121B8 /* Repo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		317C4D1822EBC87F009121B8 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				317C4D1922EBC8D0009121B8 /* UserSearch */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		317C4D1922EBC8D0009121B8 /* UserSearch */ = {
+			isa = PBXGroup;
+			children = (
+				317C4D1E22EBC982009121B8 /* DataManager */,
+				317C4D1C22EBC938009121B8 /* Interactor */,
+				317C4D1B22EBC930009121B8 /* Presenter */,
+				317C4D1F22EBC9BF009121B8 /* Protocols */,
+				317C4D1D22EBC976009121B8 /* Router */,
+				317C4D1A22EBC926009121B8 /* ViewController */,
+			);
+			path = UserSearch;
+			sourceTree = "<group>";
+		};
+		317C4D1A22EBC926009121B8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		317C4D1B22EBC930009121B8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		317C4D1C22EBC938009121B8 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		317C4D1D22EBC976009121B8 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		317C4D1E22EBC982009121B8 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		317C4D1F22EBC9BF009121B8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				317C4D2022EBC9DE009121B8 /* UserSearchProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		535D36E60861662280D03D5B /* Pods */ = {
@@ -429,6 +496,7 @@
 				317C4D0E22EBB90A009121B8 /* NetworkRequest.swift in Sources */,
 				317C4D1522EBC3CC009121B8 /* UsersResponse.swift in Sources */,
 				317C4D1322EBC125009121B8 /* GitHubUser.swift in Sources */,
+				317C4D2122EBC9DE009121B8 /* UserSearchProtocols.swift in Sources */,
 				317C4D1722EBC4D6009121B8 /* Repo.swift in Sources */,
 				3135C88622EB984900E867A4 /* AppDelegate.swift in Sources */,
 				317C4D1022EBBC48009121B8 /* Parser.swift in Sources */,
