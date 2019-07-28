@@ -15,9 +15,9 @@ extension String {
                                                      comment: "Text used as placeholder in the search bar")
 
     // MARK: error messages
-    static let emptySearchMessage = NSLocalizedString("Ops, você precisa colocar algum nome para realizar a pesquisa",
+    static let emptySearchMessage = NSLocalizedString("Ops!\nVocê precisa colocar algum nome para realizar a pesquisa",
                                                       comment: "Text shown when user try to search without any input")
 
-    static let userNotFounded = NSLocalizedString("Ops, não foi encontrado nenhum usuário com esse nome",
+    static let userNotFounded = NSLocalizedString("Ops!\nNão foi encontrado nenhum usuário com esse nome",
                                                   comment: "Text shown when the API is unable to find a user")
 }

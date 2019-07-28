@@ -22,6 +22,7 @@ final class UserSearchViewController: UIViewController {
     @IBOutlet private weak var errorView: UIView!
     @IBOutlet private weak var loadingView: UIView!
     @IBOutlet private weak var loadingActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var errorMessageLabel: UILabel!
 
     var presenter: UserSearchViewToPresenterProtocol?
 
@@ -176,8 +177,8 @@ extension UserSearchViewController: UserSearchPresenterToViewProtocol {
 
     func presentErrorMessage(_ message: String) {
 
-        print("view presented error message: \(message)")
-        #warning("needs implementation")
+        errorMessageLabel.text = message
+        updateViewStatus(toState: .error)
     }
 }
 
