@@ -40,6 +40,19 @@ extension UserSearchPresenter: UserSearchViewToPresenterProtocol {
         }
         return usersCount
     }
+
+    func getUserViewModel(at indexPath: IndexPath) -> UserViewModel {
+
+        var viewModel = UserViewModel(name: "", userImageUrl: nil)
+
+        if let user = interactor?.getUserAtIndex(indexPath.row) {
+
+            viewModel.name = user.name
+            viewModel.userImageUrl = user.avatarUrl
+        }
+
+        return viewModel
+    }
 }
 
 // MARK: - UserSearchInteractorToPresenterProtocol
@@ -47,7 +60,8 @@ extension UserSearchPresenter: UserSearchInteractorToPresenterProtocol {
 
     func updateUsers() {
 
-        #warning("needs implementation")
+        view?.stopLoading()
+        view?.updateUsersList()
     }
 
     func handleError(_ error: Error) {

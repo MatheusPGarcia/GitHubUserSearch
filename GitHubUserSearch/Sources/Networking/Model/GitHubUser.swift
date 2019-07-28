@@ -6,10 +6,12 @@
 //  Copyright © 2019 Matheus Garcia. All rights reserved.
 //
 
+import Foundation
+
 struct GitHubUser: Decodable {
 
     var name: String
-    var avatarUrl: String
+    var avatarUrl: URL?
 }
 
 extension GitHubUser {
@@ -25,6 +27,8 @@ extension GitHubUser {
         let container = try decoder.container(keyedBy: JsonKeys.self)
 
         name = try container.decode(String.self, forKey: .name)
-        avatarUrl = try container.decode(String.self, forKey: .avatarUrl)
+        let avatarStringUrl = try container.decode(String.self, forKey: .avatarUrl)
+
+        avatarUrl = URL(string: avatarStringUrl)
     }
 }

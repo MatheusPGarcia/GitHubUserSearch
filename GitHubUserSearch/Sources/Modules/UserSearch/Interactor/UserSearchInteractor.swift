@@ -28,6 +28,11 @@ extension UserSearchInteractor: UserSearchPresenterToInteractorProtocol {
         return users.count
     }
 
+    func getUserAtIndex(_ index: Int) -> GitHubUser? {
+
+        return users[safe: index]
+    }
+
     func searchForUser(_ user: String) {
 
         currentPage = 1

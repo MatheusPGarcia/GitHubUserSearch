@@ -30,6 +30,11 @@
 		317C4D3522EBEFD7009121B8 /* UrlFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C4D3422EBEFD7009121B8 /* UrlFormatter.swift */; };
 		31A0F6E622EC084F00A613E8 /* GitHubProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A0F6E522EC084F00A613E8 /* GitHubProvider.swift */; };
 		31B5912622ECCF9700F60BAE /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5912522ECCF9700F60BAE /* RequestManager.swift */; };
+		31B5912F22ED235400F60BAE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5912E22ED235400F60BAE /* Colors.swift */; };
+		31B5913222EDE77F00F60BAE /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5913122EDE77F00F60BAE /* UserProfileCell.swift */; };
+		31B5913422EDE79200F60BAE /* UserProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B5913322EDE79200F60BAE /* UserProfileCell.xib */; };
+		31B5913722EDEB3700F60BAE /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5913622EDEB3700F60BAE /* UserViewModel.swift */; };
+		31B5913922EDF48C00F60BAE /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5913822EDF48C00F60BAE /* Collections.swift */; };
 		F2C1F1C0435E73EFDB8B2BF2 /* Pods_GitHubUserSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A96BE35223DC021CC5AAF63 /* Pods_GitHubUserSearchTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +85,11 @@
 		317C4D3422EBEFD7009121B8 /* UrlFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlFormatter.swift; sourceTree = "<group>"; };
 		31A0F6E522EC084F00A613E8 /* GitHubProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubProvider.swift; sourceTree = "<group>"; };
 		31B5912522ECCF9700F60BAE /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		31B5912E22ED235400F60BAE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		31B5913122EDE77F00F60BAE /* UserProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCell.swift; sourceTree = "<group>"; };
+		31B5913322EDE79200F60BAE /* UserProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileCell.xib; sourceTree = "<group>"; };
+		31B5913622EDEB3700F60BAE /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		31B5913822EDF48C00F60BAE /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		3AA04F338EC07D4724BE0081 /* Pods_GitHubUserSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubUserSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		450B2475D55804F755B6EBCF /* Pods-GitHubUserSearchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubUserSearchUITests.debug.xcconfig"; path = "Target Support Files/Pods-GitHubUserSearchUITests/Pods-GitHubUserSearchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A96BE35223DC021CC5AAF63 /* Pods_GitHubUserSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubUserSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +237,7 @@
 				317C4D1F22EBC9BF009121B8 /* Protocols */,
 				317C4D1D22EBC976009121B8 /* Router */,
 				317C4D1A22EBC926009121B8 /* View */,
+				31B5913522EDEB1200F60BAE /* ViewModels */,
 			);
 			path = UserSearch;
 			sourceTree = "<group>";
@@ -234,6 +245,7 @@
 		317C4D1A22EBC926009121B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31B5913022EDE76800F60BAE /* Cells */,
 				317C4D2222EBCBC9009121B8 /* UserSearchViewController.swift */,
 				317C4D2E22EBD629009121B8 /* UserSearch.storyboard */,
 			);
@@ -285,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				317C4D3122EBE66B009121B8 /* Strings.swift */,
+				31B5912E22ED235400F60BAE /* Colors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -292,6 +305,7 @@
 		317C4D3322EBEFBD009121B8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				31B5913822EDF48C00F60BAE /* Collections.swift */,
 				317C4D3422EBEFD7009121B8 /* UrlFormatter.swift */,
 			);
 			path = Utils;
@@ -311,6 +325,23 @@
 				317C4D2822EBCE85009121B8 /* UserSearchLocalDataManager.swift */,
 			);
 			path = LocalDataManager;
+			sourceTree = "<group>";
+		};
+		31B5913022EDE76800F60BAE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				31B5913122EDE77F00F60BAE /* UserProfileCell.swift */,
+				31B5913322EDE79200F60BAE /* UserProfileCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		31B5913522EDEB1200F60BAE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				31B5913622EDEB3700F60BAE /* UserViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		535D36E60861662280D03D5B /* Pods */ = {
@@ -445,6 +476,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31B5913422EDE79200F60BAE /* UserProfileCell.xib in Resources */,
 				3135C89022EB984B00E867A4 /* LaunchScreen.storyboard in Resources */,
 				3135C88D22EB984B00E867A4 /* Assets.xcassets in Resources */,
 				317C4D2F22EBD629009121B8 /* UserSearch.storyboard in Resources */,
@@ -578,6 +610,7 @@
 				317C4D2D22EBCFA0009121B8 /* UserSearchRouter.swift in Sources */,
 				317C4D2722EBCCEA009121B8 /* UserSearchInteractor.swift in Sources */,
 				317C4D1522EBC3CC009121B8 /* UsersResponse.swift in Sources */,
+				31B5912F22ED235400F60BAE /* Colors.swift in Sources */,
 				31B5912622ECCF9700F60BAE /* RequestManager.swift in Sources */,
 				31A0F6E622EC084F00A613E8 /* GitHubProvider.swift in Sources */,
 				317C4D1322EBC125009121B8 /* GitHubUser.swift in Sources */,
@@ -587,10 +620,13 @@
 				317C4D2322EBCBC9009121B8 /* UserSearchViewController.swift in Sources */,
 				317C4D3522EBEFD7009121B8 /* UrlFormatter.swift in Sources */,
 				3135C88622EB984900E867A4 /* AppDelegate.swift in Sources */,
+				31B5913722EDEB3700F60BAE /* UserViewModel.swift in Sources */,
 				317C4D2522EBCCA1009121B8 /* UserSearchPresenter.swift in Sources */,
 				317C4D1022EBBC48009121B8 /* Parser.swift in Sources */,
 				317C4D2922EBCE85009121B8 /* UserSearchLocalDataManager.swift in Sources */,
+				31B5913222EDE77F00F60BAE /* UserProfileCell.swift in Sources */,
 				317C4D2B22EBCE96009121B8 /* UserSearchApiDataManager.swift in Sources */,
+				31B5913922EDF48C00F60BAE /* Collections.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

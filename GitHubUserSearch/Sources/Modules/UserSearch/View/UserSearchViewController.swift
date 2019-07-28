@@ -10,38 +10,71 @@ import UIKit
 
 final class UserSearchViewController: UIViewController {
 
+    @IBOutlet private weak var tableView: UITableView!
+
     var presenter: UserSearchViewToPresenterProtocol?
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
 
+        setupNavigationBar()
         setupSearchBar()
+        setupTableView()
     }
 
     // MARK: - Setup
+    private func setupNavigationBar() {
+
+        navigationController?.navigationBar.barTintColor = .mainColor
+        navigationController?.navigationBar.isTranslucent = false
+    }
+
     private func setupSearchBar() {
 
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
         searchBar.placeholder = String.searchPlaceHolder
 
-        if let view = searchBar.value(forKey: "searchField") as? UITextView {
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
 
-            view.backgroundColor = UIColor.init(red: 63/255, green: 68/255, blue: 72/255, alpha: 1)
+            textfield.textColor = UIColor.white
+            if let backgroundview = textfield.subviews.first {
+
+                backgroundview.backgroundColor = UIColor.clearGrayColor
+
+                backgroundview.layer.cornerRadius = 10
+                backgroundview.clipsToBounds = true
+            }
         }
 
+        searchBar.delegate = self
+
         self.navigationItem.titleView = searchBar
+    }
+
+    private func setupTableView() {
+
+        tableView.register(UserProfileCell.self,
+                           forCellReuseIdentifier: UserProfileCell.cellIdentifier)
+
+        tableView.dataSource = self
+        tableView.delegate = self
+
+        tableView.keyboardDismissMode = .onDrag
+    }
+}
+
+// MARK: - Private methods
+extension UserSearchViewController {
+
+    private func hideKeyboard(usingView view: UIView) {
+
+        view.endEditing(true)
     }
 }
 
 // MARK: - Actions
-extension UserSearchViewController {
-
-    @IBAction func searchWasPressed(_ sender: UIButton) {
-
-        presenter?.searchForUser("")
-    }
-}
+extension UserSearchViewController { }
 
 // MARK: - UserSearchPresenterToViewControllerProtocol
 extension UserSearchViewController: UserSearchPresenterToViewProtocol {
@@ -50,6 +83,11 @@ extension UserSearchViewController: UserSearchPresenterToViewProtocol {
 
         print("view setted in empty state")
         #warning("needs implementation")
+    }
+
+    func updateUsersList() {
+
+        tableView.reloadData()
     }
 
     func startLoading() {
@@ -81,12 +119,33 @@ extension UserSearchViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        #warning("needs Implementation")
-        return UITableViewCell()
+        var cell = UITableViewCell()
+
+        if let userCell = tableView.dequeueReusableCell(withIdentifier: UserProfileCell.cellIdentifier,
+                                                        for: indexPath) as? UserProfileCell,
+            let viewModel = presenter?.getUserViewModel(at: indexPath) {
+
+            userCell.setupCell(withViewModel: viewModel)
+            cell = userCell
+        }
+
+        return cell
     }
 }
 
 // MARK: - UITableViewDelegate
 extension UserSearchViewController: UITableViewDelegate {
 
+}
+
+// MARK: - UISearchBarDelegate
+extension UserSearchViewController: UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+        hideKeyboard(usingView: searchBar)
+
+        let user = searchBar.text
+        presenter?.searchForUser(user)
+    }
 }

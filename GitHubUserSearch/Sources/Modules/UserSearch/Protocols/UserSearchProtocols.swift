@@ -14,7 +14,10 @@ protocol UserSearchViewToPresenterProtocol: class {
 
     func searchForUser(_ user: String?)
 
+    // MARK: TableViewDataSource
     func numberOfCells() -> Int
+
+    func getUserViewModel(at indexPath: IndexPath) -> UserViewModel
 }
 
 // MARK: - UserSearchPresenterToViewProtocol
@@ -27,6 +30,8 @@ protocol UserSearchPresenterToViewProtocol: class {
 
     func stopLoading()
 
+    func updateUsersList()
+
     func presentErrorMessage(_ message: String)
 }
 
@@ -35,7 +40,9 @@ protocol UserSearchPresenterToViewProtocol: class {
 protocol UserSearchPresenterToInteractorProtocol: class {
 
     func getUsersCount() -> Int
-    
+
+    func getUserAtIndex(_ index: Int) -> GitHubUser?
+
     func searchForUser(_ user: String)
 
     func requestMoreResultsForUser(_ user: String)
