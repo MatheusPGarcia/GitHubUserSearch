@@ -30,7 +30,7 @@ protocol UserSearchPresenterToViewProtocol: class {
 
     func stopLoading()
 
-    func updateUsersList()
+    func setUsersList()
 
     func presentErrorMessage(_ message: String)
 }

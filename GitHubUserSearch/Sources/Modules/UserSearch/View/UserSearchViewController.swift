@@ -8,21 +8,40 @@
 
 import UIKit
 
+private enum SearchViewStates {
+
+    case emptyState
+    case presentingList
+    case error
+}
+
 final class UserSearchViewController: UIViewController {
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var usersTableView: UITableView!
+    @IBOutlet private weak var emptyStateView: UIView!
+    @IBOutlet private weak var errorView: UIView!
+    @IBOutlet private weak var loadingView: UIView!
+    @IBOutlet private weak var loadingActivityIndicator: UIActivityIndicatorView!
 
     var presenter: UserSearchViewToPresenterProtocol?
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
 
-        setupNavigationBar()
-        setupSearchBar()
-        setupTableView()
+        setupViews()
     }
 
     // MARK: - Setup
+    private func setupViews() {
+
+        setupNavigationBar()
+        setupSearchBar()
+        setupTableView()
+
+        stopLoading()
+        setEmptyState()
+    }
+
     private func setupNavigationBar() {
 
         navigationController?.navigationBar.barTintColor = .mainColor
@@ -54,13 +73,13 @@ final class UserSearchViewController: UIViewController {
 
     private func setupTableView() {
 
-        tableView.register(UserProfileCell.self,
+        usersTableView.register(UserProfileCell.self,
                            forCellReuseIdentifier: UserProfileCell.cellIdentifier)
 
-        tableView.dataSource = self
-        tableView.delegate = self
+        usersTableView.dataSource = self
+        usersTableView.delegate = self
 
-        tableView.keyboardDismissMode = .onDrag
+        usersTableView.keyboardDismissMode = .onDrag
     }
 }
 
@@ -71,35 +90,88 @@ extension UserSearchViewController {
 
         view.endEditing(true)
     }
+
+    private func updateViewStatus(toState state: SearchViewStates) {
+
+        var showView: UIView
+        var hideViews = [UIView]()
+
+        switch state {
+        case .emptyState:
+
+            showView = emptyStateView
+            hideViews.append(contentsOf: [errorView, usersTableView])
+        case .presentingList:
+
+            showView = usersTableView
+            hideViews.append(contentsOf: [emptyStateView, errorView])
+        case .error:
+
+            showView = errorView
+            hideViews.append(contentsOf: [emptyStateView, usersTableView])
+        }
+
+        animateViewStatusUpdate(showView: showView, hideViews: hideViews)
+    }
 }
 
 // MARK: - Actions
 extension UserSearchViewController { }
+
+// MARK: - Animations
+extension UserSearchViewController {
+
+    private func animateViewStatusUpdate(showView: UIView, hideViews: [UIView]) {
+
+        let hideAnimation = UIViewPropertyAnimator(duration: 0.15, curve: .linear) {
+
+            hideViews.forEach { $0.alpha = 0 }
+        }
+
+        let presenteAnimation = UIViewPropertyAnimator(duration: 0.15, curve: .linear) {
+
+            showView.alpha = 1
+        }
+
+        hideAnimation.addCompletion { _ in
+
+            hideViews.forEach { $0.isHidden = true }
+
+            showView.alpha = 0
+            showView.isHidden = false
+
+            presenteAnimation.startAnimation()
+        }
+
+        hideAnimation.startAnimation()
+    }
+}
 
 // MARK: - UserSearchPresenterToViewControllerProtocol
 extension UserSearchViewController: UserSearchPresenterToViewProtocol {
 
     func setEmptyState() {
 
-        print("view setted in empty state")
-        #warning("needs implementation")
+        updateViewStatus(toState: .emptyState)
     }
 
-    func updateUsersList() {
+    func setUsersList() {
 
-        tableView.reloadData()
+        usersTableView.reloadData()
+
+        updateViewStatus(toState: .presentingList)
     }
 
     func startLoading() {
 
-        print("view started loading")
-        #warning("needs implementation")
+        loadingActivityIndicator.startAnimating()
+        loadingView.isHidden = false
     }
 
     func stopLoading() {
 
-        print("view stoped loading")
-        #warning("needs implementation")
+        loadingView.isHidden = true
+        loadingActivityIndicator.stopAnimating()
     }
 
     func presentErrorMessage(_ message: String) {

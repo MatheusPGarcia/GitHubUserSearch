@@ -61,7 +61,7 @@ extension UserSearchPresenter: UserSearchInteractorToPresenterProtocol {
     func updateUsers() {
 
         view?.stopLoading()
-        view?.updateUsersList()
+        view?.setUsersList()
     }
 
     func handleError(_ error: Error) {
