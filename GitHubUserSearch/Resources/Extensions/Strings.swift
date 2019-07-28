@@ -20,4 +20,7 @@ extension String {
 
     static let userNotFounded = NSLocalizedString("Ops!\nNão foi encontrado nenhum usuário com esse nome",
                                                   comment: "Text shown when the API is unable to find a user")
+
+    static let defaultErrorMessage = NSLocalizedString("Ops!\nAlgo deu errado\nTente novamente mais tarde",
+                                                       comment: "Text shown when the API is unable to find a user")
 }

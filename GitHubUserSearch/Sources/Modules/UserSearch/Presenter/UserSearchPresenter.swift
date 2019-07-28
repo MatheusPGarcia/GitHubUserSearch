@@ -20,7 +20,7 @@ extension UserSearchPresenter: UserSearchViewToPresenterProtocol {
 
     func searchForUser(_ userName: String?) {
 
-        guard let userName = userName, !userName.isEmpty else {
+        guard let userName = userName?.trimmingCharacters(in: .whitespaces), !userName.isEmpty else {
 
             view?.presentErrorMessage(String.emptySearchMessage)
             return
@@ -61,11 +61,19 @@ extension UserSearchPresenter: UserSearchInteractorToPresenterProtocol {
     func updateUsers() {
 
         view?.stopLoading()
+
+        guard interactor?.getUsersCount() ?? 0 > 0 else {
+
+            view?.presentErrorMessage(String.userNotFounded)
+            return
+        }
+
         view?.setUsersList()
     }
 
     func handleError(_ error: Error) {
 
-        #warning("needs implementation")
+        view?.stopLoading()
+        view?.presentErrorMessage(String.defaultErrorMessage)
     }
 }
