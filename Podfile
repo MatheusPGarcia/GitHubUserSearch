@@ -9,6 +9,8 @@ target 'GitHubUserSearch' do
   # Pods for GitHubUserSearch
 
   pod 'SwiftLint'
+  pod 'Moya', '~> 13.0'
+  pod 'Kingfisher', '~> 5.0'
 
   target 'GitHubUserSearchTests' do
     inherit! :search_paths
