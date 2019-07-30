@@ -6,13 +6,15 @@
 //  Copyright © 2019 Matheus Garcia. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - UserSearchViewToPresenterProtocol
 // VIEW -> PRESENTER
 protocol UserSearchViewToPresenterProtocol: class {
 
     func searchForUser(_ user: String?)
+
+    func selectedUser(at indexPath: IndexPath)
 
     // MARK: TableViewDataSource
     func numberOfCells() -> Int
@@ -72,4 +74,7 @@ protocol UserSearchApiDataManagerProtocol: class {
 
 // MARK: - UserSearchPresenterToRouterProtocol
 // PRESENTER -> ROUTER
-protocol UserSearchPresenterToRouterProtocol: class { }
+protocol UserSearchPresenterToRouterProtocol: class {
+
+    func presentRepos(from view: UserSearchPresenterToViewProtocol, forUser user: String)
+}

@@ -209,6 +209,10 @@ extension UserSearchViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension UserSearchViewController: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        presenter?.selectedUser(at: indexPath)
+    }
 }
 
 // MARK: - UISearchBarDelegate

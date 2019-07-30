@@ -29,6 +29,14 @@
 		317C4D3222EBE66B009121B8 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C4D3122EBE66B009121B8 /* Strings.swift */; };
 		317C4D3522EBEFD7009121B8 /* UrlFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C4D3422EBEFD7009121B8 /* UrlFormatter.swift */; };
 		31A0F6E622EC084F00A613E8 /* GitHubProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A0F6E522EC084F00A613E8 /* GitHubProvider.swift */; };
+		31AD9E3522EFB86500266EAC /* UserReposApiDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD9E3422EFB86500266EAC /* UserReposApiDataManager.swift */; };
+		31AD9E3722EFB87400266EAC /* UserReposLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD9E3622EFB87400266EAC /* UserReposLocalDataManager.swift */; };
+		31AD9E3922EFB87F00266EAC /* UserReposInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD9E3822EFB87F00266EAC /* UserReposInteractor.swift */; };
+		31AD9E3B22EFB88900266EAC /* UserReposPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD9E3A22EFB88900266EAC /* UserReposPresenter.swift */; };
+		31AD9E3D22EFB89300266EAC /* UserReposProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD9E3C22EFB89300266EAC /* UserReposProtocols.swift */; };
+		31AD9E3F22EFB89E00266EAC /* UserReposRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD9E3E22EFB89E00266EAC /* UserReposRouter.swift */; };
+		31AD9E4522EFB8D400266EAC /* UserReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD9E4422EFB8D400266EAC /* UserReposViewController.swift */; };
+		31AD9E4722EFB8DF00266EAC /* UserRepos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31AD9E4622EFB8DF00266EAC /* UserRepos.storyboard */; };
 		31B5912622ECCF9700F60BAE /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5912522ECCF9700F60BAE /* RequestManager.swift */; };
 		31B5912F22ED235400F60BAE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5912E22ED235400F60BAE /* Colors.swift */; };
 		31B5913222EDE77F00F60BAE /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5913122EDE77F00F60BAE /* UserProfileCell.swift */; };
@@ -84,6 +92,14 @@
 		317C4D3122EBE66B009121B8 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		317C4D3422EBEFD7009121B8 /* UrlFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlFormatter.swift; sourceTree = "<group>"; };
 		31A0F6E522EC084F00A613E8 /* GitHubProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubProvider.swift; sourceTree = "<group>"; };
+		31AD9E3422EFB86500266EAC /* UserReposApiDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReposApiDataManager.swift; sourceTree = "<group>"; };
+		31AD9E3622EFB87400266EAC /* UserReposLocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReposLocalDataManager.swift; sourceTree = "<group>"; };
+		31AD9E3822EFB87F00266EAC /* UserReposInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReposInteractor.swift; sourceTree = "<group>"; };
+		31AD9E3A22EFB88900266EAC /* UserReposPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReposPresenter.swift; sourceTree = "<group>"; };
+		31AD9E3C22EFB89300266EAC /* UserReposProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReposProtocols.swift; sourceTree = "<group>"; };
+		31AD9E3E22EFB89E00266EAC /* UserReposRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReposRouter.swift; sourceTree = "<group>"; };
+		31AD9E4422EFB8D400266EAC /* UserReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReposViewController.swift; sourceTree = "<group>"; };
+		31AD9E4622EFB8DF00266EAC /* UserRepos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserRepos.storyboard; sourceTree = "<group>"; };
 		31B5912522ECCF9700F60BAE /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		31B5912E22ED235400F60BAE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		31B5913122EDE77F00F60BAE /* UserProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCell.swift; sourceTree = "<group>"; };
@@ -223,6 +239,7 @@
 		317C4D1822EBC87F009121B8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				31F39FF522EFB75A00E2F001 /* UserRepos */,
 				317C4D1922EBC8D0009121B8 /* UserSearch */,
 			);
 			path = Modules;
@@ -327,6 +344,79 @@
 			path = LocalDataManager;
 			sourceTree = "<group>";
 		};
+		31AD9E2A22EFB7EE00266EAC /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				31AD9E3222EFB83600266EAC /* ApiDataManager */,
+				31AD9E3322EFB84100266EAC /* LocalDataManager */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		31AD9E2B22EFB7F700266EAC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		31AD9E2C22EFB7FE00266EAC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				31AD9E4422EFB8D400266EAC /* UserReposViewController.swift */,
+				31AD9E4622EFB8DF00266EAC /* UserRepos.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		31AD9E2D22EFB80500266EAC /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				31AD9E3E22EFB89E00266EAC /* UserReposRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		31AD9E2E22EFB80B00266EAC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				31AD9E3C22EFB89300266EAC /* UserReposProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		31AD9E2F22EFB81200266EAC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				31AD9E3A22EFB88900266EAC /* UserReposPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		31AD9E3022EFB81A00266EAC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				31AD9E3822EFB87F00266EAC /* UserReposInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		31AD9E3222EFB83600266EAC /* ApiDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				31AD9E3422EFB86500266EAC /* UserReposApiDataManager.swift */,
+			);
+			path = ApiDataManager;
+			sourceTree = "<group>";
+		};
+		31AD9E3322EFB84100266EAC /* LocalDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				31AD9E3622EFB87400266EAC /* UserReposLocalDataManager.swift */,
+			);
+			path = LocalDataManager;
+			sourceTree = "<group>";
+		};
 		31B5913022EDE76800F60BAE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +432,20 @@
 				31B5913622EDEB3700F60BAE /* UserViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		31F39FF522EFB75A00E2F001 /* UserRepos */ = {
+			isa = PBXGroup;
+			children = (
+				31AD9E2A22EFB7EE00266EAC /* DataManager */,
+				31AD9E3022EFB81A00266EAC /* Interactor */,
+				31AD9E2F22EFB81200266EAC /* Presenter */,
+				31AD9E2E22EFB80B00266EAC /* Protocols */,
+				31AD9E2D22EFB80500266EAC /* Router */,
+				31AD9E2C22EFB7FE00266EAC /* View */,
+				31AD9E2B22EFB7F700266EAC /* ViewModels */,
+			);
+			path = UserRepos;
 			sourceTree = "<group>";
 		};
 		535D36E60861662280D03D5B /* Pods */ = {
@@ -477,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B5913422EDE79200F60BAE /* UserProfileCell.xib in Resources */,
+				31AD9E4722EFB8DF00266EAC /* UserRepos.storyboard in Resources */,
 				3135C89022EB984B00E867A4 /* LaunchScreen.storyboard in Resources */,
 				3135C88D22EB984B00E867A4 /* Assets.xcassets in Resources */,
 				317C4D2F22EBD629009121B8 /* UserSearch.storyboard in Resources */,
@@ -621,10 +726,17 @@
 				317C4D3522EBEFD7009121B8 /* UrlFormatter.swift in Sources */,
 				3135C88622EB984900E867A4 /* AppDelegate.swift in Sources */,
 				31B5913722EDEB3700F60BAE /* UserViewModel.swift in Sources */,
+				31AD9E3722EFB87400266EAC /* UserReposLocalDataManager.swift in Sources */,
+				31AD9E3922EFB87F00266EAC /* UserReposInteractor.swift in Sources */,
 				317C4D2522EBCCA1009121B8 /* UserSearchPresenter.swift in Sources */,
 				317C4D1022EBBC48009121B8 /* Parser.swift in Sources */,
 				317C4D2922EBCE85009121B8 /* UserSearchLocalDataManager.swift in Sources */,
+				31AD9E4522EFB8D400266EAC /* UserReposViewController.swift in Sources */,
+				31AD9E3B22EFB88900266EAC /* UserReposPresenter.swift in Sources */,
 				31B5913222EDE77F00F60BAE /* UserProfileCell.swift in Sources */,
+				31AD9E3F22EFB89E00266EAC /* UserReposRouter.swift in Sources */,
+				31AD9E3522EFB86500266EAC /* UserReposApiDataManager.swift in Sources */,
+				31AD9E3D22EFB89300266EAC /* UserReposProtocols.swift in Sources */,
 				317C4D2B22EBCE96009121B8 /* UserSearchApiDataManager.swift in Sources */,
 				31B5913922EDF48C00F60BAE /* Collections.swift in Sources */,
 			);

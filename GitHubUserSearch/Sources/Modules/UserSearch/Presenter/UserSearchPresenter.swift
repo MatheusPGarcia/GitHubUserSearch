@@ -30,6 +30,15 @@ extension UserSearchPresenter: UserSearchViewToPresenterProtocol {
         interactor?.searchForUser(userName)
     }
 
+    func selectedUser(at indexPath: IndexPath) {
+
+        if let userName = interactor?.getUserAtIndex(indexPath.item)?.name,
+            let view = view {
+
+            router?.presentRepos(from: view, forUser: userName)
+        }
+    }
+
     func numberOfCells() -> Int {
 
         let usersCount = interactor?.getUsersCount() ?? 0
@@ -45,7 +54,7 @@ extension UserSearchPresenter: UserSearchViewToPresenterProtocol {
 
         var viewModel = UserViewModel(name: "", userImageUrl: nil)
 
-        if let user = interactor?.getUserAtIndex(indexPath.row) {
+        if let user = interactor?.getUserAtIndex(indexPath.item) {
 
             viewModel.name = user.name
             viewModel.userImageUrl = user.avatarUrl

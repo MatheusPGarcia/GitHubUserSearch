@@ -29,4 +29,13 @@ class UserSearchRouter {
 }
 
 // MARK: - UserSearchPresenterToRouterProtocol
-extension UserSearchRouter: UserSearchPresenterToRouterProtocol { }
+extension UserSearchRouter: UserSearchPresenterToRouterProtocol {
+
+    func presentRepos(from view: UserSearchPresenterToViewProtocol, forUser user: String) {
+
+        guard let reposView = UserReposRouter.createUserReposModule(forUser: user) else { return }
+
+        let rootViewController = view as? UIViewController
+        rootViewController?.present(reposView, animated: true, completion: nil)
+    }
+}
