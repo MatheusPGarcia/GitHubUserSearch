@@ -76,5 +76,5 @@ protocol UserSearchApiDataManagerProtocol: class {
 // PRESENTER -> ROUTER
 protocol UserSearchPresenterToRouterProtocol: class {
 
-    func presentRepos(from view: UserSearchPresenterToViewProtocol, forUser user: String)
+    func presentRepos(from navController: UINavigationController, forUser user: String)
 }

@@ -12,4 +12,22 @@ struct UserViewModel {
 
     var name: String
     var userImageUrl: URL?
+
+    init() {
+
+        name = ""
+        userImageUrl = nil
+    }
+
+    init(name: String, userImageUrl: URL?) {
+
+        self.name = name
+        self.userImageUrl = userImageUrl
+    }
+
+    init(user: GitHubUser) {
+
+        name = user.name
+        userImageUrl = user.avatarUrl
+    }
 }

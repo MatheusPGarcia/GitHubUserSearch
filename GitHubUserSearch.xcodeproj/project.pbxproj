@@ -37,6 +37,9 @@
 		31AD9E3F22EFB89E00266EAC /* UserReposRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD9E3E22EFB89E00266EAC /* UserReposRouter.swift */; };
 		31AD9E4522EFB8D400266EAC /* UserReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD9E4422EFB8D400266EAC /* UserReposViewController.swift */; };
 		31AD9E4722EFB8DF00266EAC /* UserRepos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31AD9E4622EFB8DF00266EAC /* UserRepos.storyboard */; };
+		31AD9E4A22F01E6300266EAC /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD9E4922F01E6300266EAC /* RepoCell.swift */; };
+		31AD9E4C22F01E6E00266EAC /* RepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31AD9E4B22F01E6E00266EAC /* RepoCell.xib */; };
+		31AD9E4E22F10FDF00266EAC /* RepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD9E4D22F10FDF00266EAC /* RepoViewModel.swift */; };
 		31B5912622ECCF9700F60BAE /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5912522ECCF9700F60BAE /* RequestManager.swift */; };
 		31B5912F22ED235400F60BAE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5912E22ED235400F60BAE /* Colors.swift */; };
 		31B5913222EDE77F00F60BAE /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B5913122EDE77F00F60BAE /* UserProfileCell.swift */; };
@@ -100,6 +103,9 @@
 		31AD9E3E22EFB89E00266EAC /* UserReposRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReposRouter.swift; sourceTree = "<group>"; };
 		31AD9E4422EFB8D400266EAC /* UserReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReposViewController.swift; sourceTree = "<group>"; };
 		31AD9E4622EFB8DF00266EAC /* UserRepos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserRepos.storyboard; sourceTree = "<group>"; };
+		31AD9E4922F01E6300266EAC /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
+		31AD9E4B22F01E6E00266EAC /* RepoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoCell.xib; sourceTree = "<group>"; };
+		31AD9E4D22F10FDF00266EAC /* RepoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewModel.swift; sourceTree = "<group>"; };
 		31B5912522ECCF9700F60BAE /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		31B5912E22ED235400F60BAE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		31B5913122EDE77F00F60BAE /* UserProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCell.swift; sourceTree = "<group>"; };
@@ -356,6 +362,7 @@
 		31AD9E2B22EFB7F700266EAC /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				31AD9E4D22F10FDF00266EAC /* RepoViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -363,6 +370,7 @@
 		31AD9E2C22EFB7FE00266EAC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31AD9E4822F01E4700266EAC /* Cells */,
 				31AD9E4422EFB8D400266EAC /* UserReposViewController.swift */,
 				31AD9E4622EFB8DF00266EAC /* UserRepos.storyboard */,
 			);
@@ -415,6 +423,15 @@
 				31AD9E3622EFB87400266EAC /* UserReposLocalDataManager.swift */,
 			);
 			path = LocalDataManager;
+			sourceTree = "<group>";
+		};
+		31AD9E4822F01E4700266EAC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				31AD9E4922F01E6300266EAC /* RepoCell.swift */,
+				31AD9E4B22F01E6E00266EAC /* RepoCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		31B5913022EDE76800F60BAE /* Cells */ = {
@@ -581,6 +598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B5913422EDE79200F60BAE /* UserProfileCell.xib in Resources */,
+				31AD9E4C22F01E6E00266EAC /* RepoCell.xib in Resources */,
 				31AD9E4722EFB8DF00266EAC /* UserRepos.storyboard in Resources */,
 				3135C89022EB984B00E867A4 /* LaunchScreen.storyboard in Resources */,
 				3135C88D22EB984B00E867A4 /* Assets.xcassets in Resources */,
@@ -723,10 +741,12 @@
 				317C4D3222EBE66B009121B8 /* Strings.swift in Sources */,
 				317C4D1722EBC4D6009121B8 /* Repo.swift in Sources */,
 				317C4D2322EBCBC9009121B8 /* UserSearchViewController.swift in Sources */,
+				31AD9E4E22F10FDF00266EAC /* RepoViewModel.swift in Sources */,
 				317C4D3522EBEFD7009121B8 /* UrlFormatter.swift in Sources */,
 				3135C88622EB984900E867A4 /* AppDelegate.swift in Sources */,
 				31B5913722EDEB3700F60BAE /* UserViewModel.swift in Sources */,
 				31AD9E3722EFB87400266EAC /* UserReposLocalDataManager.swift in Sources */,
+				31AD9E4A22F01E6300266EAC /* RepoCell.swift in Sources */,
 				31AD9E3922EFB87F00266EAC /* UserReposInteractor.swift in Sources */,
 				317C4D2522EBCCA1009121B8 /* UserSearchPresenter.swift in Sources */,
 				317C4D1022EBBC48009121B8 /* Parser.swift in Sources */,

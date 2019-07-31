@@ -14,6 +14,7 @@ let gitHubProvider = MoyaProvider<GitHubProvider>(plugins: [NetworkLoggerPlugin(
 public enum GitHubProvider {
 
     case user(_ user: String, page: Int)
+    case repos(_ user: String)
 }
 
 extension GitHubProvider: TargetType {
@@ -29,13 +30,17 @@ extension GitHubProvider: TargetType {
         case .user:
 
             return "/search/users"
+        case .repos(let username):
+
+            return "/users/\(username)/repos"
         }
     }
 
     public var method: Moya.Method {
 
         switch self {
-        case .user:
+        case .user,
+             .repos:
 
             return .get
         }
@@ -55,6 +60,9 @@ extension GitHubProvider: TargetType {
                                                    "page": page,
                                                    "per_page": 100],
                                       encoding: URLEncoding(destination: .queryString))
+        case .repos:
+
+            return .requestPlain
         }
     }
 

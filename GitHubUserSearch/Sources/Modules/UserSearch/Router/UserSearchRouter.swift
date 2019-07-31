@@ -31,11 +31,16 @@ class UserSearchRouter {
 // MARK: - UserSearchPresenterToRouterProtocol
 extension UserSearchRouter: UserSearchPresenterToRouterProtocol {
 
-    func presentRepos(from view: UserSearchPresenterToViewProtocol, forUser user: String) {
+    func presentRepos(from navController: UINavigationController, forUser user: String) {
 
-        guard let reposView = UserReposRouter.createUserReposModule(forUser: user) else { return }
+        let storyboard = UIStoryboard(name: "UserRepos", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "UserReposViewController")
+        guard let userReposController = controller as? UserReposViewController else { return }
 
-        let rootViewController = view as? UIViewController
-        rootViewController?.present(reposView, animated: true, completion: nil)
+        UserReposRouter.createUserReposModule(withViewController: userReposController,
+                                              forUser: user)
+
+        navController.pushViewController(controller, animated: true)
+        //view.present(controller, animated: true, completion: nil)
     }
 }

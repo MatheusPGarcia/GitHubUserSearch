@@ -10,24 +10,22 @@ import UIKit
 
 class UserReposRouter {
 
-    static func createUserReposModule(forUser user: String) -> UIViewController? {
+    static func createUserReposModule(withViewController view: UserReposViewController?,
+                                      forUser user: String) {
 
-        let view = UserReposViewController()
         let presenter = UserReposPresenter(user: user)
         let router = UserReposRouter()
         let interactor = UserReposInteractor()
         let apiDataManager = UserReposApiDataManager()
         let localDataManager = UserReposLocalDataManager()
 
-        view.presenter = presenter
+        view?.presenter = presenter
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
         interactor.presenter = presenter
         interactor.apiDataManager = apiDataManager
         interactor.localDataManager = localDataManager
-
-        return view
     }
 }
 

@@ -10,12 +10,13 @@ import Foundation
 
 struct Repo: Decodable {
 
-    var name: String
-    var description: String
-    var url: String
+    var name: String?
+    var description: String?
+    var url: String?
 
-    var language: String
-    var issuesCount: Int
+    var stars: Int?
+    var language: String?
+    var issuesCount: Int?
 }
 
 extension Repo {
@@ -25,6 +26,7 @@ extension Repo {
         case name
         case description
         case url = "html_url"
+        case stars = "stargazers_count"
         case language = "language"
         case issuesCount = "open_issues_count"
     }
@@ -33,10 +35,11 @@ extension Repo {
 
         let container = try decoder.container(keyedBy: JsonKeys.self)
 
-        name = try container.decode(String.self, forKey: .name)
-        description = try container.decode(String.self, forKey: .description)
-        url = try container.decode(String.self, forKey: .url)
-        language = try container.decode(String.self, forKey: .language)
-        issuesCount = try container.decode(Int.self, forKey: .issuesCount)
+        name = try container.decodeIfPresent(String.self, forKey: .name)
+        description = try container.decodeIfPresent(String.self, forKey: .description)
+        url = try container.decodeIfPresent(String.self, forKey: .url)
+        stars = try container.decodeIfPresent(Int.self, forKey: .stars)
+        language = try container.decodeIfPresent(String.self, forKey: .language)
+        issuesCount = try container.decodeIfPresent(Int.self, forKey: .issuesCount)
     }
 }
