@@ -20,5 +20,5 @@ The idea of this project is an iOS App that searches for GitHub users and show t
 ## Developed by
  - Matheus Pompeo Garcia (iOS Developer)
  - Github: MatheusPGarcia
- - email: matheuspgarcia@gmail.com
+ - matheuspgarcia@gmail.com
  - [linkedin](https://www.linkedin.com/in/matheus-garcia-85387b150/)
