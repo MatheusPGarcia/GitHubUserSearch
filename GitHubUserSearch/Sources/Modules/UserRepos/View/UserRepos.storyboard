@@ -28,17 +28,36 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cw-yf-7n5">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="JBf-9s-i4B">
+                                        <rect key="frame" x="188.5" y="407.5" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="JBf-9s-i4B" firstAttribute="centerX" secondItem="3cw-yf-7n5" secondAttribute="centerX" id="Axu-hK-woM"/>
+                                    <constraint firstItem="JBf-9s-i4B" firstAttribute="centerY" secondItem="3cw-yf-7n5" secondAttribute="centerY" id="x4E-H3-xvX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vcM-ej-XDQ" firstAttribute="leading" secondItem="Vhv-CN-HSQ" secondAttribute="leading" id="3mY-LV-4Kp"/>
+                            <constraint firstItem="3cw-yf-7n5" firstAttribute="leading" secondItem="Vhv-CN-HSQ" secondAttribute="leading" id="4Le-Me-slt"/>
                             <constraint firstItem="vcM-ej-XDQ" firstAttribute="top" secondItem="Vhv-CN-HSQ" secondAttribute="top" id="4ek-kc-zJs"/>
+                            <constraint firstItem="3cw-yf-7n5" firstAttribute="top" secondItem="Vhv-CN-HSQ" secondAttribute="top" id="Dsz-ps-35C"/>
                             <constraint firstItem="Vhv-CN-HSQ" firstAttribute="trailing" secondItem="vcM-ej-XDQ" secondAttribute="trailing" id="EMd-Iv-4xa"/>
                             <constraint firstAttribute="bottom" secondItem="vcM-ej-XDQ" secondAttribute="bottom" id="VPd-aM-sgD"/>
+                            <constraint firstAttribute="bottom" secondItem="3cw-yf-7n5" secondAttribute="bottom" id="aUf-Vk-pPO"/>
+                            <constraint firstItem="Vhv-CN-HSQ" firstAttribute="trailing" secondItem="3cw-yf-7n5" secondAttribute="trailing" id="qhh-Wc-Ues"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vhv-CN-HSQ"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="JBf-9s-i4B" id="eU2-1v-RGh"/>
+                        <outlet property="loadingView" destination="3cw-yf-7n5" id="Pkf-rk-JS6"/>
                         <outlet property="reposTableView" destination="vcM-ej-XDQ" id="wB7-kO-Otw"/>
                     </connections>
                 </viewController>

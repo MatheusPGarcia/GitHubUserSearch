@@ -27,6 +27,7 @@ extension UserReposPresenter: UserReposViewToPresenterProtocol {
 
     func viewDidLoad() {
 
+        view?.startLoading()
         interactor?.askReposForUser(user)
     }
 
@@ -68,11 +69,12 @@ extension UserReposPresenter: UserReposInteractorToPresenterProtocol {
 
     func updateUserRepos() {
 
+        view?.stopLoading()
         view?.setReposList()
     }
 
     func handleError(_ error: Error) {
 
-        #warning("needs implementation")
+        view?.presentErrorAlert(title: ":(", message: String.defaultErrorMessage)
     }
 }

@@ -35,6 +35,8 @@ protocol UserReposPresenterToViewProtocol: class {
     func stopLoading()
 
     func openUrl(_ url: URL)
+
+    func presentErrorAlert(title: String, message: String)
 }
 
 // MARK: - UserReposPresenterToInteractorProtocol

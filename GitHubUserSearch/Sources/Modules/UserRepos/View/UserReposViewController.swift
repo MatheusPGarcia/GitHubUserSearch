@@ -11,6 +11,8 @@ import UIKit
 final class UserReposViewController: UIViewController {
 
     @IBOutlet private weak var reposTableView: UITableView!
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var presenter: UserReposViewToPresenterProtocol?
 
@@ -62,17 +64,32 @@ extension UserReposViewController: UserReposPresenterToViewProtocol {
 
     func startLoading() {
 
-        #warning("needs implementation")
+        loadingView.isHidden = false
+        activityIndicator.startAnimating()
     }
 
     func stopLoading() {
 
-        #warning("needs implementation")
+        loadingView.isHidden = true
+        activityIndicator.stopAnimating()
     }
 
     func openUrl(_ url: URL) {
 
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+
+    func presentErrorAlert(title: String, message: String) {
+
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "OK",
+                                      style: UIAlertAction.Style.default,
+                                      handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
