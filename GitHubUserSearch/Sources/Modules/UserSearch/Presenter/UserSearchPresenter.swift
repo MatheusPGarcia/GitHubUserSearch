@@ -6,7 +6,7 @@
 //  Copyright © 2019 Matheus Garcia. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class UserSearchPresenter {
 
@@ -30,6 +30,16 @@ extension UserSearchPresenter: UserSearchViewToPresenterProtocol {
         interactor?.searchForUser(userName)
     }
 
+    func selectedUser(at indexPath: IndexPath) {
+
+        if let userName = interactor?.getUserAtIndex(indexPath.item)?.name,
+            let view = view as? UIViewController,
+            let navController = view.navigationController {
+
+            router?.presentRepos(from: navController, forUser: userName)
+        }
+    }
+
     func numberOfCells() -> Int {
 
         let usersCount = interactor?.getUsersCount() ?? 0
@@ -43,12 +53,11 @@ extension UserSearchPresenter: UserSearchViewToPresenterProtocol {
 
     func getUserViewModel(at indexPath: IndexPath) -> UserViewModel {
 
-        var viewModel = UserViewModel(name: "", userImageUrl: nil)
+        var viewModel = UserViewModel()
 
-        if let user = interactor?.getUserAtIndex(indexPath.row) {
+        if let user = interactor?.getUserAtIndex(indexPath.item) {
 
-            viewModel.name = user.name
-            viewModel.userImageUrl = user.avatarUrl
+            viewModel = UserViewModel(user: user)
         }
 
         return viewModel

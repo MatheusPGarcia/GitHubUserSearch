@@ -20,6 +20,17 @@ final class UserSearchInteractor {
     var users = [GitHubUser]()
 }
 
+// MARK: - Private methods
+extension UserSearchInteractor {
+
+    private func makeUserRequest(user: String,
+                                 page: Int,
+                                 completion: @escaping (Swift.Result<UsersResponse, Error>) -> Void) {
+
+        apiDataManager?.searchForUser(user, page: page, completion: completion)
+    }
+}
+
 // MARK: - UserSearchPresenterToInteractorProtocol
 extension UserSearchInteractor: UserSearchPresenterToInteractorProtocol {
 
@@ -71,17 +82,6 @@ extension UserSearchInteractor: UserSearchPresenterToInteractorProtocol {
                 self?.presenter?.handleError(error)
             }
         }
-    }
-}
-
-// MARK: - Private methods
-extension UserSearchInteractor {
-
-    private func makeUserRequest(user: String,
-                                 page: Int,
-                                 completion: @escaping (Swift.Result<UsersResponse, Error>) -> Void) {
-
-        apiDataManager?.searchForUser(user, page: page, completion: completion)
     }
 }
 

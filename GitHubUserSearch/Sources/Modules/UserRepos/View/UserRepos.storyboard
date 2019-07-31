@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User Repos View Controller-->
+        <scene sceneID="wdl-tj-wVc">
+            <objects>
+                <viewController storyboardIdentifier="UserReposViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2np-8f-g2I" customClass="UserReposViewController" customModule="GitHubUserSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lSL-HO-oAo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vcM-ej-XDQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="uDE-Zs-T3R">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cw-yf-7n5">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="JBf-9s-i4B">
+                                        <rect key="frame" x="188.5" y="407.5" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="JBf-9s-i4B" firstAttribute="centerX" secondItem="3cw-yf-7n5" secondAttribute="centerX" id="Axu-hK-woM"/>
+                                    <constraint firstItem="JBf-9s-i4B" firstAttribute="centerY" secondItem="3cw-yf-7n5" secondAttribute="centerY" id="x4E-H3-xvX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vcM-ej-XDQ" firstAttribute="leading" secondItem="Vhv-CN-HSQ" secondAttribute="leading" id="3mY-LV-4Kp"/>
+                            <constraint firstItem="3cw-yf-7n5" firstAttribute="leading" secondItem="Vhv-CN-HSQ" secondAttribute="leading" id="4Le-Me-slt"/>
+                            <constraint firstItem="vcM-ej-XDQ" firstAttribute="top" secondItem="Vhv-CN-HSQ" secondAttribute="top" id="4ek-kc-zJs"/>
+                            <constraint firstItem="3cw-yf-7n5" firstAttribute="top" secondItem="Vhv-CN-HSQ" secondAttribute="top" id="Dsz-ps-35C"/>
+                            <constraint firstItem="Vhv-CN-HSQ" firstAttribute="trailing" secondItem="vcM-ej-XDQ" secondAttribute="trailing" id="EMd-Iv-4xa"/>
+                            <constraint firstAttribute="bottom" secondItem="vcM-ej-XDQ" secondAttribute="bottom" id="VPd-aM-sgD"/>
+                            <constraint firstAttribute="bottom" secondItem="3cw-yf-7n5" secondAttribute="bottom" id="aUf-Vk-pPO"/>
+                            <constraint firstItem="Vhv-CN-HSQ" firstAttribute="trailing" secondItem="3cw-yf-7n5" secondAttribute="trailing" id="qhh-Wc-Ues"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vhv-CN-HSQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="JBf-9s-i4B" id="eU2-1v-RGh"/>
+                        <outlet property="loadingView" destination="3cw-yf-7n5" id="Pkf-rk-JS6"/>
+                        <outlet property="reposTableView" destination="vcM-ej-XDQ" id="wB7-kO-Otw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vts-d0-Bd4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-744.92753623188412" y="57.589285714285708"/>
+        </scene>
+    </scenes>
+</document>
