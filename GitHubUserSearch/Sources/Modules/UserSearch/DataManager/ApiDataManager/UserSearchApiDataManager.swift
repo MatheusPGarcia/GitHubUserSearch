@@ -8,7 +8,10 @@
 
 import Foundation
 
-final class UserSearchApiDataManager { }
+final class UserSearchApiDataManager {
+
+    private var requesting: Bool = false
+}
 
 // MARK: - UserSearchApiDataManagerProtocol
 extension UserSearchApiDataManager: UserSearchApiDataManagerProtocol {
@@ -17,12 +20,17 @@ extension UserSearchApiDataManager: UserSearchApiDataManagerProtocol {
                        page: Int,
                        completion: @escaping (Result<UsersResponse, Error>) -> Void) {
 
+        guard !requesting else { return }
+        requesting = true
+
         let provider = gitHubProvider
         let target = GitHubProvider.user(user, page: page)
 
         RequestManager.request(provider: provider,
                                target: target,
-                               type: UsersResponse.self) { (result) in
+                               type: UsersResponse.self) { [weak self] (result) in
+
+            self?.requesting = false
 
             switch result {
             case .success(let usersResponse):

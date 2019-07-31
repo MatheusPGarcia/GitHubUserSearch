@@ -64,14 +64,33 @@ extension UserReposViewController: UserReposPresenterToViewProtocol {
 
     func startLoading() {
 
-        loadingView.isHidden = false
         activityIndicator.startAnimating()
+
+        loadingView.alpha = 0
+        loadingView.isHidden = false
+
+        let animation = UIViewPropertyAnimator(duration: 0.30, curve: .linear) {
+
+            self.loadingView.alpha = 1
+        }
+
+        animation.startAnimation()
     }
 
     func stopLoading() {
 
-        loadingView.isHidden = true
-        activityIndicator.stopAnimating()
+        let animation = UIViewPropertyAnimator(duration: 0.30, curve: .linear) {
+
+            self.loadingView.alpha = 0
+        }
+
+        animation.addCompletion { [weak self] _ in
+
+            self?.loadingView.isHidden = true
+            self?.activityIndicator.stopAnimating()
+        }
+
+        animation.startAnimation()
     }
 
     func openUrl(_ url: URL) {

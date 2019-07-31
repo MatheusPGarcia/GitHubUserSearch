@@ -13,6 +13,23 @@ final class UserSearchPresenter {
     weak var view: UserSearchPresenterToViewProtocol?
     var interactor: UserSearchPresenterToInteractorProtocol?
     var router: UserSearchPresenterToRouterProtocol?
+
+    private var currentUser: String?
+}
+
+// MARK: - Private methods
+extension UserSearchPresenter {
+
+    private func verifyPagination(index: IndexPath) {
+
+        guard let usersCount = interactor?.getUsersCount() else { return }
+        let pageLimit = Constants.paginationValue
+
+        if index.row > (usersCount - pageLimit) && usersCount > pageLimit {
+
+            interactor?.requestMoreResultsForUser(currentUser ?? "")
+        }
+    }
 }
 
 // MARK: - UserSearchViewControllerToPresenterProtocol
@@ -27,6 +44,7 @@ extension UserSearchPresenter: UserSearchViewToPresenterProtocol {
         }
 
         view?.startLoading()
+        currentUser = userName
         interactor?.searchForUser(userName)
     }
 
@@ -52,6 +70,8 @@ extension UserSearchPresenter: UserSearchViewToPresenterProtocol {
     }
 
     func getUserViewModel(at indexPath: IndexPath) -> UserViewModel {
+
+        verifyPagination(index: indexPath)
 
         var viewModel = UserViewModel()
 
@@ -85,4 +105,9 @@ extension UserSearchPresenter: UserSearchInteractorToPresenterProtocol {
         view?.stopLoading()
         view?.presentErrorMessage(String.defaultErrorMessage)
     }
+}
+
+private enum Constants {
+
+    static let paginationValue: Int = 20
 }
