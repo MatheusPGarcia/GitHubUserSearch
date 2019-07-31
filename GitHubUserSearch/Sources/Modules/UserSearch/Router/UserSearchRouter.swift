@@ -41,6 +41,5 @@ extension UserSearchRouter: UserSearchPresenterToRouterProtocol {
                                               forUser: user)
 
         navController.pushViewController(controller, animated: true)
-        //view.present(controller, animated: true, completion: nil)
     }
 }

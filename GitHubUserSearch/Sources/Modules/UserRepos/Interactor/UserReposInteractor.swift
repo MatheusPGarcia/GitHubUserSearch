@@ -46,7 +46,7 @@ extension UserReposInteractor: UserReposPresenterToInteractorProtocol {
         return repos[safe: index]
     }
 
-    func getRepos() -> [Repo] {
+    func getAllRepos() -> [Repo] {
 
         return repos
     }

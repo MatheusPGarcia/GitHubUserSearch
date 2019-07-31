@@ -36,7 +36,7 @@ extension UserReposPresenter: UserReposViewToPresenterProtocol {
         return user
     }
 
-    func numberOfCells() -> Int {
+    func getNumberOfCells() -> Int {
 
         return interactor?.getReposCount() ?? 0
     }
@@ -53,9 +53,9 @@ extension UserReposPresenter: UserReposViewToPresenterProtocol {
         return viewModel
     }
 
-    func cellSelected(_ cellName: String) {
+    func cellWasSelected(_ cellName: String) {
 
-        let repos = interactor?.getRepos()
+        let repos = interactor?.getAllRepos()
         let repo = repos?.first(where: { $0.name == cellName })
 
         guard let url = URL(string: repo?.url ?? "") else { return }

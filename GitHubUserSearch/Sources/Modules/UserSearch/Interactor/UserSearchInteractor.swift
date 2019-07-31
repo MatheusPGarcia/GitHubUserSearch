@@ -68,7 +68,7 @@ extension UserSearchInteractor: UserSearchPresenterToInteractorProtocol {
 
         currentPage += 1
 
-        #warning("verify if it is possible to ask for more users")
+        // TODO: verify if it is possible to ask for more users
 
         makeUserRequest(user: user, page: currentPage) { [weak self] (result) in
 

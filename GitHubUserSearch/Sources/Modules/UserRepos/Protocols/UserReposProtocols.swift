@@ -16,10 +16,10 @@ protocol UserReposViewToPresenterProtocol: class {
 
     func getUserName() -> String
 
-    func cellSelected(_ cellName: String)
+    func cellWasSelected(_ cellName: String)
 
     // MARK: TableViewDataSource
-    func numberOfCells() -> Int
+    func getNumberOfCells() -> Int
 
     func getRepoViewModel(at indexPath: IndexPath) -> RepoViewModel
 }
@@ -49,7 +49,7 @@ protocol UserReposPresenterToInteractorProtocol: class {
 
     func getRepo(atIndex index: Int) -> Repo?
 
-    func getRepos() -> [Repo]
+    func getAllRepos() -> [Repo]
 }
 
 // MARK: - UserReposInteractorToPresenterProtocol

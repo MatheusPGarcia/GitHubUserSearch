@@ -117,7 +117,7 @@ extension UserReposViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return presenter?.numberOfCells() ?? 0
+        return presenter?.getNumberOfCells() ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -142,6 +142,6 @@ extension UserReposViewController: RepoCellDelegate {
 
     func repoTitleInteraction(for repoName: String) {
 
-        presenter?.cellSelected(repoName)
+        presenter?.cellWasSelected(repoName)
     }
 }

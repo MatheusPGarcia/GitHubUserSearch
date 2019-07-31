@@ -27,7 +27,8 @@ extension UserSearchPresenter {
 
         if index.row > (usersCount - pageLimit) && usersCount > pageLimit {
 
-            interactor?.requestMoreResultsForUser(currentUser ?? "")
+            // TODO: Handle request for more users
+            // interactor?.requestMoreResultsForUser(currentUser ?? "")
         }
     }
 }
